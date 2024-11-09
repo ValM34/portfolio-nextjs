@@ -40,7 +40,7 @@ export const education = [
     ],
     date: "2023 - 2024",
   },
-]
+];
 
 export const experience = [
   {
@@ -60,11 +60,7 @@ export const experience = [
     id: 2,
     company: "MCDONALD'S LE CRÈS",
     job: "Equipier polyvalent",
-    skills: [
-      "Préparation des plats en cuisine",
-      "Nettoyage",
-      "Fermeture",
-    ],
+    skills: ["Préparation des plats en cuisine", "Nettoyage", "Fermeture"],
     date: "2018 - 2020",
   },
   {
@@ -80,5 +76,27 @@ export const experience = [
     ],
     date: "2016 - 2017",
   },
-]
+];
 
+export const projectsList = [
+  {
+    tagList: [
+      "NextJs",
+      "Prisma",
+      "TypeScript",
+      "Yup",
+      "Formik",
+      "TailwindCss/UI",
+      "jsonwebtoken/jose/bcrypt",
+      "Jest",
+    ],
+    title: "Todo list Next.Js | 2024",
+    imagesSrc: ["overview-todo-list-project.png"],
+    linksList: [
+      "https://github.com/ValM34/todolist-nextjs",
+      "https://todolist-valentin-moreau.vercel.app",
+      "#",
+    ],
+    date: "2024",
+  },
+];
