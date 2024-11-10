@@ -1,59 +1,81 @@
 import Tag from "@/app/components/components/tag";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLongDownIcon } from "@heroicons/react/24/outline";
 
-export default function ProjectPresentation({ project, gradientColor, children }: Readonly<{ project: Project, gradientColor: string, children: React.ReactNode }>) {
+export default function ProjectPresentation({
+  project,
+  theme,
+  children,
+}: Readonly<{
+  project: Project;
+  theme: string;
+  children: React.ReactNode;
+}>) {
   return (
     <div
-      id="project_todo_list"
-      className={`bg-gradient-to-r from-${gradientColor}-500 to-${gradientColor}-300`}
+      className={`
+        ${
+          theme === "primary"
+            ? "bg-gradient-to-r from-slate-950 to-slate-900 text-slate-300 "
+            : "bg-gradient-to-r from-slate-200 to-slate-100 "
+        }
+      px-4`}
     >
-      <div className="flex flex-col justify-between max-w-6xl mx-auto min-h-screen pt-12">
-        <div></div>
-        <div className="flex">
+      <div className="flex items-center max-w-6xl mx-auto min-h-screen py-12">
+        <div className="flex flex-col items-center lg:flex-row">
           <div className="flex flex-col justify-center">
-            <h2 className="text-4xl font-bold mb-4">
-              {project.title}
-            </h2>
+            <h2 className="text-2xl sm:text-4xl font-bold mb-4 text-center lg:text-left">{project.title}</h2>
             <div className="mb-3">
-              <ul>
+              <ul className="flex flex-wrap justify-center lg:justify-start">
                 {project.tagList.map((tag, index) => {
                   return (
                     <li key={index} className="mr-2 mb-2 inline-block">
-                      <Tag>{tag}</Tag>
+                      <Tag theme={theme}>{tag}</Tag>
                     </li>
                   );
                 })}
               </ul>
             </div>
-            <p className="text-2xl">
-              {children}
-            </p>
-            <div className="flex justify-start mt-4">
-              <Link
-                href={project.linksList[0]}
-                className="flex w-fit bg-github rounded-full py-4 px-4 text-white text-xl transition-transform hover:scale-105 mr-4"
-                target="_blank"
-              >
-                <div className="mx-4 font-medium">GitHub</div>
-              </Link>
-              <Link
-                href={project.linksList[1]}
-                className="flex w-fit bg-red-600 rounded-full py-4 px-4 text-white text-xl transition-transform hover:scale-105 mr-4"
-                target="_blank"
-              >
-                <div className="mx-4 font-medium">Voir le site</div>
-              </Link>
-              <Link
-                href={project.linksList[2]}
-                className="flex w-fit bg-red-600 rounded-full py-4 px-4 text-white text-xl transition-transform hover:scale-105"
-                target="_blank"
-              >
-                <div className="mx-4 font-medium">
-                  Plus d&apos;infos sur le projet
-                </div>
-              </Link>
+            <p className="text-2xl text-center sm:text-justify">{children}</p>
+            <div className="flex flex-col items-center sm:flex-row sm:justify-center lg:justify-start mt-4 mb-4 lg:mb-0">
+              {project.linksList.github ? (
+                <Link
+                  href={project.linksList.github}
+                  className="flex justify-center w-full sm:w-fit bg-slate-200 border-2 border-slate-900 rounded-full py-4 px-4 text-github text-xl transition-transform hover:scale-105 sm:mr-4 mb-2 sm:mb-0"
+                  target="_blank"
+                >
+                  <div className="mx-4 font-medium">
+                    GitHub{" "}
+                    <Image
+                      src="/github-mark.svg"
+                      alt="GitHub"
+                      width={24}
+                      height={24}
+                      className="inline-block w-6"
+                    />
+                  </div>
+                </Link>
+              ) : null}
+
+              {project.linksList.siteUrl ? (
+                <Link
+                  href={project.linksList.siteUrl}
+                  className="flex justify-center w-full sm:w-fit bg-red-600 rounded-full py-4 px-4 text-white text-xl transition-transform hover:scale-105 sm:mr-4 mb-2 sm:mb-0"
+                  target="_blank"
+                >
+                  <div className="mx-4 font-medium">Voir le site</div>
+                </Link>
+              ) : null}
+
+              {project.linksList.projectPresentation ? (
+                <Link
+                  href={project.linksList.projectPresentation}
+                  className="flex justify-center w-full sm:w-fit bg-red-600 rounded-full py-4 px-4 text-white text-xl transition-transform hover:scale-105"
+                  target="_blank"
+                >
+                  <div className="mx-4 font-medium">Détails</div>
+                </Link>
+              ) : null}
             </div>
           </div>
           <Image
@@ -61,17 +83,8 @@ export default function ProjectPresentation({ project, gradientColor, children }
             alt="Photo de Valentin"
             width={1917}
             height={909}
-            className="ml-4 w-96 h-96 object-cover shadow-lg	shadow-black/50"
+            className="lg:ml-4 w-10/12 lg:w-96 lg:h-96 object-cover shadow-lg	shadow-black/50"
           />
-        </div>
-        <div className="flex flex-col items-center">
-          <Link
-            href="/#project_portfolio"
-            className="flex mb-4 mx-auto bg-gradient-to-b from-indigo-400 to-indigo-500 rounded-full py-4 px-6 text-white text-2xl transition-transform hover:scale-105 w-fit"
-          >
-            <div className="mx-4 font-medium">Projet suivant</div>
-          </Link>
-          <ArrowLongDownIcon className="size-8 mt-1 text-white animate-bounce" />
         </div>
       </div>
     </div>

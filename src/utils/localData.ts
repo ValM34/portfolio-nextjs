@@ -92,18 +92,44 @@ export const projectsList = [
     ],
     title: "Todo list Next.Js | 2024",
     imagesSrc: ["overview-todo-list-project.png"],
-    linksList: [
-      "https://github.com/ValM34/todolist-nextjs",
-      "https://todolist-valentin-moreau.vercel.app",
-      "#",
-    ],
+    linksList: {
+      github: "https://github.com/ValM34/todolist-nextjs",
+      siteUrl: "https://todolist-valentin-moreau.vercel.app",
+      projectPresentation: null,
+    },
     date: "2024",
   },
   {
     tagList: ["NextJs", "TypeScript", "TailwindCss"],
     title: "Portfolio | 2024",
-    imagesSrc: ["overview-portfolio-project.png"],
-    linksList: ["https://github.com/ValM34/Portfolio", "#", "#"],
-    date: "2023",
-  }
+    imagesSrc: ["overview-todo-list-project.png"],
+    linksList: {
+      github: "https://github.com/ValM34/portfolio-nextjs",
+      siteUrl: "https://portfolio-nextjs-sigma-pink.vercel.app",
+      projectPresentation: null,
+    },
+    date: "2024",
+  },
+  {
+    tagList: ["NextJs", "TypeScript", "Clean architecture", "Yup", "Formik", "TailwindCss/UI", "Jest"],
+    title: "E-commerce/Blog Next.js & Strapi | EN COURS",
+    imagesSrc: ["overview-todo-list-project.png"],
+    linksList: {
+      github: null,
+      siteUrl: null,
+      projectPresentation: null,
+    },
+    date: "2024",
+  },
+  {
+    tagList: ["PHP", "Symfony", "Twig", "SQL", "JavaScript"],
+    title: "Site communautaire en Symfony | 2022",
+    imagesSrc: ["overview-snowtricks-project.png"],
+    linksList: {
+      github: "https://github.com/ValM34/OP-DA-P6",
+      siteUrl: "https://snowtricks.valentin-moreau.com",
+      projectPresentation: null,
+    },
+    date: "2024",
+  },
 ];
