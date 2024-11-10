@@ -99,4 +99,11 @@ export const projectsList = [
     ],
     date: "2024",
   },
+  {
+    tagList: ["NextJs", "TypeScript", "TailwindCss"],
+    title: "Portfolio | 2024",
+    imagesSrc: ["overview-portfolio-project.png"],
+    linksList: ["https://github.com/ValM34/Portfolio", "#", "#"],
+    date: "2023",
+  }
 ];

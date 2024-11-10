@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLongDownIcon } from "@heroicons/react/24/outline";
 
-export default function ProjectPresentation({ tagList, imagesSrc, title, linksList, gradientColor, children }: Readonly<{ tagList: string[], imagesSrc: string[], title: string, linksList: string[], gradientColor: string, children: React.ReactNode }>) {
+export default function ProjectPresentation({ project, gradientColor, children }: Readonly<{ project: Project, gradientColor: string, children: React.ReactNode }>) {
   return (
     <div
       id="project_todo_list"
@@ -14,11 +14,11 @@ export default function ProjectPresentation({ tagList, imagesSrc, title, linksLi
         <div className="flex">
           <div className="flex flex-col justify-center">
             <h2 className="text-4xl font-bold mb-4">
-              {title}
+              {project.title}
             </h2>
             <div className="mb-3">
               <ul>
-                {tagList.map((tag, index) => {
+                {project.tagList.map((tag, index) => {
                   return (
                     <li key={index} className="mr-2 mb-2 inline-block">
                       <Tag>{tag}</Tag>
@@ -32,21 +32,21 @@ export default function ProjectPresentation({ tagList, imagesSrc, title, linksLi
             </p>
             <div className="flex justify-start mt-4">
               <Link
-                href={linksList[0]}
+                href={project.linksList[0]}
                 className="flex w-fit bg-github rounded-full py-4 px-4 text-white text-xl transition-transform hover:scale-105 mr-4"
                 target="_blank"
               >
                 <div className="mx-4 font-medium">GitHub</div>
               </Link>
               <Link
-                href={linksList[1]}
+                href={project.linksList[1]}
                 className="flex w-fit bg-red-600 rounded-full py-4 px-4 text-white text-xl transition-transform hover:scale-105 mr-4"
                 target="_blank"
               >
                 <div className="mx-4 font-medium">Voir le site</div>
               </Link>
               <Link
-                href={linksList[2]}
+                href={project.linksList[2]}
                 className="flex w-fit bg-red-600 rounded-full py-4 px-4 text-white text-xl transition-transform hover:scale-105"
                 target="_blank"
               >
@@ -57,7 +57,7 @@ export default function ProjectPresentation({ tagList, imagesSrc, title, linksLi
             </div>
           </div>
           <Image
-            src={`/${imagesSrc[0]}`}
+            src={`/${project.imagesSrc[0]}`}
             alt="Photo de Valentin"
             width={1917}
             height={909}
