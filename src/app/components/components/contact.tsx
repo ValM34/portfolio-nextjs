@@ -1,5 +1,3 @@
-import CtaLink from "@/app/components/components/cta-link";
-
 export default function Contact() {
   return (
     <div id="contact" className="bg-gradient-to-r from-slate-950 to-slate-900 text-slate-300 min-h-screen flex flex-col items-center justify-center border-t border-slate-700">
