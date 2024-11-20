@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.scss";
-import Header from "@/app/components/layouts/header";
-import Footer from "@/app/components/layouts/footer";
+import Header from "@/app/components/layouts/Header";
+import Footer from "@/app/components/layouts/Footer";
 
 export const metadata: Metadata = {
   title: "Portfolio",

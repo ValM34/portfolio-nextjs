@@ -9,7 +9,7 @@ export default function Header() {
 
   return (
     <>
-      <nav>
+      <nav className="border-b border-slate-700">
         <div className="hidden md:flex justify-evenly bg-gradient-to-r from-slate-950 to-slate-900 text-slate-300">
           <Link className="hover:scale-110 transition-transform text-center text-2xl font-medium p-4" href="/">Accueil</Link>
           <Link className="hover:scale-110 transition-transform text-center text-2xl font-medium p-4" href="/#projects_list">Mes projets</Link>
