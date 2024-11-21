@@ -5,3 +5,5 @@ type User = {
   createdAt: string;
   updatedAt: string;
 }
+
+type UserVerify = Pick<User, 'email'>

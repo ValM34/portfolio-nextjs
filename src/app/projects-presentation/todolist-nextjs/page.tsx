@@ -53,7 +53,7 @@ export default function TodolistNextjs() {
           {project.technologies && project.technologies.map((technology, index) => {
             return (
               <li key={index} className="mr-2 mb-2 inline-block">
-                <Tag theme="primary">{technology.name}</Tag>
+                <Tag theme="primary">{technology.technology.name}</Tag>
               </li>
             );
           })}

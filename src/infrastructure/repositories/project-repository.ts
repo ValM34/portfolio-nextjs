@@ -4,7 +4,7 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-export async function createProject(data: Omit<Project, 'createdAt' | 'updatedAt' | 'id' | 'technologies' | 'projectPresentationPost' | 'description'>) {
+export async function createProject(data: Omit<Project, 'createdAt' | 'updatedAt' | 'id' | 'technologies' | 'projectPresentationPost' | 'description' | 'yearOfProduction'>) {
   await prisma.project.create({
     data: {
       name: data.name,
@@ -17,7 +17,8 @@ export async function createProject(data: Omit<Project, 'createdAt' | 'updatedAt
   });
 }
 
-export async function getProjects() {
+export async function getProjects() : Promise<Project[]> {
+  // @ts-expect-error @ts-ignore
   return await prisma.project.findMany({
     orderBy: {
       yearOfProduction: 'desc',

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import LinkedInLink from "./links/LinkedInLink";
 
 export default function Contact() {

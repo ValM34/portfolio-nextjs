@@ -42,7 +42,7 @@ export async function refreshToken(): Promise<string | null> {
   const jwtSecret = process.env.JWT_SECRET as string;
   const user = await getUser();
   if(!user) return null;
-  return await new SignJWT({ firstName: user.firstName, lastName: user.lastName, email: user.email })
+  return await new SignJWT({ email: user.email })
     .setProtectedHeader({ alg: 'HS256' })
     .setExpirationTime('1h')
     .sign(new TextEncoder().encode(jwtSecret));

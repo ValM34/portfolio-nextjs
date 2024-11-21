@@ -40,6 +40,7 @@ export default function ProjectPresentation({
                 })}
               </ul>
             </div>
+            {/* @ts-expect-error @ts-ignore */}
             <div className="text-xl sm:text-2xl text-center lg:text-left"><BlocksRenderer content={project.description as BlocksContent} /></div>
             <div className="flex flex-col items-center sm:flex-row sm:justify-center lg:justify-start mt-4 mb-4 lg:mb-0">
               {project.github ? (

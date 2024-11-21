@@ -3,8 +3,8 @@ type Project = {
   imageSrc: string;
   github: string | null;
   siteUrl: string | null;
-  createdAt: string;
-  updatedAt: string;
+  createdAt: Date | null;
+  updatedAt: Date | null;
   yearOfProduction: string;
   description: string;
   id: number;
@@ -12,5 +12,5 @@ type Project = {
   projectPresentationName: string | null;
   // projectPresentationPost: Array<object> | null;
   projectPresentationPost: object[];
-  technologies: Technology[] | null;
+  technologies: Technologies[];
 }
