@@ -7,7 +7,7 @@ import {
   BlocksRenderer,
   type BlocksContent,
 } from "@strapi/blocks-react-renderer";
-import Tag from "@/app/components/components/Tag";
+import Tag from "@/components/components/Tag";
 
 export default function TodolistNextjs() {
   const { projects, setProjects } = useProjectsStore();

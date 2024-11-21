@@ -1,4 +1,4 @@
-import Tag from "@/app/components/components/Tag";
+import Tag from "@/components/components/Tag";
 import Image from "next/image";
 import Link from "next/link";
 import { BlocksRenderer, type BlocksContent } from '@strapi/blocks-react-renderer';

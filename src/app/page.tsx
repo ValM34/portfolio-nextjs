@@ -1,7 +1,7 @@
 'use client';
 
 import ProjectPresentation from '@/app/ProjectPresentation';
-import Contact from '@/app/components/components/Contact';
+import Contact from '@/components/components/Contact';
 import { useEffect } from 'react';
 import useProjectsStore from '@/stores/project-store';
 import HeroSection from '@/app/HeroSection';
