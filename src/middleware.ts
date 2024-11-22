@@ -7,7 +7,6 @@ export async function middleware(req: Request) {
   const matches = adminUrlRegex.test(url);
 
   if (matches) {
-    console.log('URL correspond à */admin/* ou */admin');
     if ((await isAuth())) {
       const token = await refreshToken();
       if (token) {
