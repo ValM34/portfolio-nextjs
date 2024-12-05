@@ -8,3 +8,7 @@ export function convertMariaDBDate(date: string): number {
   const year = d.getFullYear();
   return year;
 }
+
+export function convertWPACFDateToFullYear(date: string): string {
+  return date.slice(0, 4);
+}

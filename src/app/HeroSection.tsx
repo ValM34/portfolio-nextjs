@@ -1,5 +1,5 @@
 import { ArrowLongDownIcon } from "@heroicons/react/24/outline";
-import CtaLink from "@/components/components/public/links/CTALink";
+import CtaLink from "@/components/components/links/CTALink";
 
 export default function HeroSection() {
   return (
