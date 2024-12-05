@@ -25,6 +25,9 @@ export default function Home() {
           )
             .then((response) => response.json())
             .then((data) => {
+              data.sort(
+                (a: Project, b: Project) => parseInt(b.acf.year_of_production) - parseInt(a.acf.year_of_production)
+              )
               setProjects(data);
             });
         }
