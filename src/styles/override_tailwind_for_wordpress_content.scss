@@ -1,5 +1,5 @@
 @layer base {
-  #override_tailwind_for_strapi_rich_text {
+  #override_tailwind_for_wordpress_content {
     h1 {
       @apply text-3xl md:text-4xl lg:text-5xl mb-12 font-semibold;
     }
