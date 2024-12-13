@@ -20,23 +20,23 @@ export default async function TodolistNextjs(
     technologies = project?.acf.technologies.split(',');
   }
 
-  // if (project !== undefined)
-  //   return (
-  //     <>
-  //       <h1>
-  //         {project.title.rendered}
-  //       </h1>
-  //       <Image className="mb-4" src={project.acf.main_image} alt={project.title.rendered} width={768} height={768} />
-  //       <ul className="mb-2">
-  //         {technologies && technologies.map((technology, index) => {
-  //           return (
-  //             <li key={index} className="mr-2 mb-2 inline-block">
-  //               <Tag theme="primary">{technology}</Tag>
-  //             </li>
-  //           );
-  //         })}
-  //       </ul>
-  //       <div dangerouslySetInnerHTML={{ __html: project.content.rendered }} />
-  //     </>
-  //   );
+  if (project !== undefined)
+    return (
+      <>
+        <h1>
+          {project.title.rendered}
+        </h1>
+        <Image className="mb-4" src={project.acf.main_image} alt={project.title.rendered} width={768} height={768} />
+        <ul className="mb-2">
+          {technologies && technologies.map((technology, index) => {
+            return (
+              <li key={index} className="mr-2 mb-2 inline-block">
+                <Tag theme="primary">{technology}</Tag>
+              </li>
+            );
+          })}
+        </ul>
+        <div dangerouslySetInnerHTML={{ __html: project.content.rendered }} />
+      </>
+    );
 }
