@@ -21,7 +21,7 @@ export default async function Home() {
 
   return (
     <>
-      {/* <HeroSection />
+      <HeroSection />
       <div id="projects_list">
         {projects &&
           projects.map((project, index) => {
@@ -35,7 +35,7 @@ export default async function Home() {
             );
           })}
       </div>
-      <Contact /> */}
+      <Contact />
     </>
   );
 }
