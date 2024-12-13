@@ -4,24 +4,24 @@ import HeroSection from '@/app/HeroSection';
 import ErrorComponent from '@/components/components/ErrorComponent';
 
 export default async function Home() {
-  const projects: Project[] = await (
-    await fetch(`${process.env.NEXT_API_URL}/api/posts/`)
-  ).json();
+  // const projects: Project[] = await (
+  //   await fetch(`${process.env.NEXT_API_URL}/api/posts/`)
+  // ).json();
 
-  console.log(process.env.NEXT_API_URL);
+  // console.log(process.env.NEXT_API_URL);
+  return <div>{process.env.NEXT_API_URL}</div>
+  // if (!projects) {
+  //   return <ErrorComponent />;
+  // }
 
-  if (!projects) {
-    return <ErrorComponent />;
-  }
-
-  projects.sort(
-    (a: Project, b: Project) =>
-      parseInt(b.acf.year_of_production) - parseInt(a.acf.year_of_production)
-  );
+  // projects.sort(
+  //   (a: Project, b: Project) =>
+  //     parseInt(b.acf.year_of_production) - parseInt(a.acf.year_of_production)
+  // );
 
   return (
     <>
-      <HeroSection />
+      {/* <HeroSection />
       <div id="projects_list">
         {projects &&
           projects.map((project, index) => {
@@ -35,7 +35,7 @@ export default async function Home() {
             );
           })}
       </div>
-      <Contact />
+      <Contact /> */}
     </>
   );
 }
