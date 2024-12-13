@@ -14,10 +14,10 @@ export default async function Home() {
   //   return <ErrorComponent />;
   // }
 
-  // projects.sort(
-  //   (a: Project, b: Project) =>
-  //     parseInt(b.acf.year_of_production) - parseInt(a.acf.year_of_production)
-  // );
+  projects.sort(
+    (a: Project, b: Project) =>
+      parseInt(b.acf.year_of_production) - parseInt(a.acf.year_of_production)
+  );
 
   return (
     <>
