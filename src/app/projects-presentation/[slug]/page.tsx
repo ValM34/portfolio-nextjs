@@ -7,7 +7,7 @@ export default async function TodolistNextjs(
   const slug = (await params).slug;
   let project: Project | undefined;
   let technologies: string[] | undefined;
-  return <div>hello</div>
+
   const projects: Project[] = await (await fetch(`${process.env.NEXT_API_URL}/api/posts/`)).json();
   projects.sort(
     (a: Project, b: Project) => parseInt(b.acf.year_of_production) - parseInt(a.acf.year_of_production)
