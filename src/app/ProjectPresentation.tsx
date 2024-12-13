@@ -27,7 +27,7 @@ export default function ProjectPresentation({
         <div className="flex flex-col items-center lg:flex-row">
           <div className="flex flex-col justify-center">
             <h2 className="text-2xl sm:text-4xl font-bold text-center lg:text-left">{project.title.rendered}</h2>
-            <p className="mb-4 text-xl sm:text-2xl font-semibold">{convertWPACFDateToFullYear(project.acf.year_of_production)}</p>
+            <p className="mb-4 text-center text-xl lg:text-left sm:text-2xl font-semibold">{convertWPACFDateToFullYear(project.acf.year_of_production)}</p>
             <div className="mb-3">
               <ul className="flex flex-wrap justify-center lg:justify-start">
                 {technologies && technologies.map((technology, index) => {

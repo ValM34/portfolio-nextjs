@@ -1,48 +1,16 @@
-'use client';
-
 import ProjectPresentation from '@/app/ProjectPresentation';
 import Contact from '@/components/components/Contact';
-import { useEffect } from 'react';
-import useProjectsStore from '@/stores/project-store';
 import HeroSection from '@/app/HeroSection';
 
-export default function Home() {
-  const { projects, setProjects } = useProjectsStore();
-  console.log(process.env.NEXT_PUBLIC_WP_BASE_URL);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        if (projects === undefined) {
-          await fetch(
-            `${process.env.NEXT_PUBLIC_WP_BASE_URL}/wp-json/wp/v2/posts?_fields=id,title,content,date,acf,slug`,
-            {
-              method: 'GET',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-            }
-          )
-            .then((response) => response.json())
-            .then((data) => {
-              data.sort(
-                (a: Project, b: Project) => parseInt(b.acf.year_of_production) - parseInt(a.acf.year_of_production)
-              )
-              setProjects(data);
-            });
-        }
-      } catch (e) {
-        console.log(e);
-      }
-    })();
-  });
-
-  console.log(projects);
+export default async function Home() {
+  const projects: Project[] = await (await fetch("http://localhost:3000/api/posts/")).json();
+  projects.sort(
+    (a: Project, b: Project) => parseInt(b.acf.year_of_production) - parseInt(a.acf.year_of_production)
+  )
 
   return (
     <>
       <HeroSection />
-
       <div id="projects_list">
         {projects &&
           projects.map((project, index) => {
@@ -56,7 +24,6 @@ export default function Home() {
             );
           })}
       </div>
-
       <Contact />
     </>
   );

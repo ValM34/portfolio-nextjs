@@ -1,52 +1,24 @@
-"use client";
-
-import useProjectsStore from "@/stores/project-store";
-import { useEffect } from "react";
-import { usePathname } from "next/navigation";
 import Tag from "@/components/components/Tag";
 import Image from "next/image";
 
-export default function TodolistNextjs() {
-  const { projects, setProjects } = useProjectsStore();
-  const pathname = usePathname();
-
-  const projectPresentationUrl = pathname.split("/")[pathname.split("/").length - 1];
-
+export default async function TodolistNextjs(
+  { params }: { params: Promise<{ slug: string }> }
+) {
+  const slug = (await params).slug;
   let project: Project | undefined;
   let technologies: string[] | undefined;
+
+  const projects: Project[] = await (await fetch("http://localhost:3000/api/posts/")).json();
+  projects.sort(
+    (a: Project, b: Project) => parseInt(b.acf.year_of_production) - parseInt(a.acf.year_of_production)
+  )
+
   if (projects !== undefined) {
     project = projects.find(
-      (project) => project.slug === projectPresentationUrl
+      (project) => project.slug === slug
     );
     technologies = project?.acf.technologies.split(',');
   }
-
-  useEffect(() => {
-    (async () => {
-      try {
-        if (projects === undefined) {
-          fetch(
-            `${process.env.NEXT_PUBLIC_WP_BASE_URL}/wp-json/wp/v2/posts?_fields=id,title,content,date,acf,slug`,
-            {
-              method: 'GET',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-            }
-          )
-            .then((response) => response.json())
-            .then((data) => {
-              data.sort(
-                (a: Project, b: Project) => parseInt(b.acf.year_of_production) - parseInt(a.acf.year_of_production)
-              )
-              setProjects(data);
-            });
-        }
-      } catch (e) {
-        console.log(e);
-      }
-    })();
-  });
 
   if (project !== undefined)
     return (
