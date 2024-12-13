@@ -8,11 +8,9 @@ export default async function Home() {
     await fetch(`${process.env.NEXT_API_URL}/api/posts/`)
   ).json();
 
-  // console.log(process.env.NEXT_API_URL);
-  // return <div>{process.env.NEXT_API_URL}</div>
-  // if (!projects) {
-  //   return <ErrorComponent />;
-  // }
+  if (!projects) {
+    return <ErrorComponent />;
+  }
 
   projects.sort(
     (a: Project, b: Project) =>
