@@ -9,7 +9,7 @@ export default async function Home() {
   ).json();
 
   // console.log(process.env.NEXT_API_URL);
-  return <div>{process.env.NEXT_API_URL}</div>
+  // return <div>{process.env.NEXT_API_URL}</div>
   // if (!projects) {
   //   return <ErrorComponent />;
   // }
