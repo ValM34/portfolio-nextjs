@@ -4,9 +4,9 @@ import HeroSection from '@/app/HeroSection';
 import ErrorComponent from '@/components/components/ErrorComponent';
 
 export default async function Home() {
-  // const projects: Project[] = await (
-  //   await fetch(`${process.env.NEXT_API_URL}/api/posts/`)
-  // ).json();
+  const projects: Project[] = await (
+    await fetch(`${process.env.NEXT_API_URL}/api/posts/`)
+  ).json();
 
   // console.log(process.env.NEXT_API_URL);
   return <div>{process.env.NEXT_API_URL}</div>
