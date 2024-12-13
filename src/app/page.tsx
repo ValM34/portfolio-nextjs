@@ -1,12 +1,21 @@
 import ProjectPresentation from '@/app/ProjectPresentation';
 import Contact from '@/components/components/Contact';
 import HeroSection from '@/app/HeroSection';
+import ErrorComponent from './ErrorComponent';
 
 export default async function Home() {
-  const projects: Project[] = await (await fetch(`${process.env.NEXT_API_URL}/api/posts/`)).json();
+  const projects: Project[] = await (
+    await fetch(`${process.env.NEXT_API_URL}/api/posts/`)
+  ).json();
+
+  if (!projects) {
+    return <ErrorComponent />;
+  }
+
   projects.sort(
-    (a: Project, b: Project) => parseInt(b.acf.year_of_production) - parseInt(a.acf.year_of_production)
-  )
+    (a: Project, b: Project) =>
+      parseInt(b.acf.year_of_production) - parseInt(a.acf.year_of_production)
+  );
 
   return (
     <>
