@@ -3,6 +3,8 @@ import Contact from '@/components/components/Contact';
 import HeroSection from '@/app/HeroSection';
 import ErrorComponent from '@/components/components/ErrorComponent';
 
+export const revalidate = 86400;
+
 export default async function Home() {
   const projects: Project[] = await (
     await fetch(`${process.env.NEXT_API_URL}/api/posts/`)
