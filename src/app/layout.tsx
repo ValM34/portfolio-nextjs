@@ -15,8 +15,8 @@ export default function RootLayout({
 }>) {
   return (
     <html className="scroll-smooth" lang="fr">
-      <body className="">
-        <Header />
+      <body className="text-slate-300 text-xl sm:text-2xl">
+        {/* <Header /> */}
         {children}
         <Footer />
       </body>
