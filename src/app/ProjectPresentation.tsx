@@ -33,7 +33,6 @@ export default function ProjectPresentation({
                 {technologies && technologies.map((technology, index) => {
                   return (
                     <li key={index} className="mr-2 mb-2 inline-block">
-                      {/* <Tag theme={theme}>{technology.name}</Tag> */}
                       <Tag theme={theme}>{technology}</Tag>
                     </li>
                   );
