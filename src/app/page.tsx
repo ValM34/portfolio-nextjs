@@ -7,7 +7,7 @@ export const revalidate = 86400;
 
 export default async function Home() {
   const projects: Project[] = await (
-    await fetch(`${process.env.NEXT_API_URL}/api/posts/`)
+    await fetch(`${process.env.WP_BASE_URL}/wp-json/wp/v2/posts?_fields=id,title,content,date,acf,slug`)
   ).json();
 
   if (!projects) {
